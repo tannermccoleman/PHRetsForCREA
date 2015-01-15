@@ -1135,7 +1135,7 @@ class phRETS {
 	}
 
 
-	public function Connect($login_url, $username, $password, $ua_pwd = "", $ua_name = "BarcodeRealty/1.0") {
+	public function Connect($login_url, $username, $password, $ua_pwd = "", $ua_name = "RealtyBloc/1.0") {
 		$this->reset_error_info();
 
 		if (empty($login_url)) {
