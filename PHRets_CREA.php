@@ -574,10 +574,15 @@ class phRETS {
 				{
 					if($k === "RETS-RESPONSE")
 					{
-						foreach($xml->{'RETS-RESPONSE'}->children() as $k => $v)
+						foreach($xml->{'RETS-RESPONSE'}->children() as $k => $v) {
 							if($k === "PropertyDetails" || $k === "Property") {
-								$properties []= $this->xmlToArray($v);
+								$xmlArray = $this->xmlToArray($v);
+								if (count($xmlArray) == 1 && array_key_exists("PropertyDetails", $xmlArray)) {
+									$xmlArray = $xmlArray["PropertyDetails"];
+								}
+								$properties []= $xmlArray;
 							}
+						}
 					}
 					elseif($k === "COUNT")
 					{}
